@@ -7,10 +7,12 @@ import org.junit.Test;
 public class TestMoodAnalyzerException {
 
     @Test
-    public void testMoodAnalyser_NullPointerException() throws MoodAnalyzerException {
+    public void testMoodAnalyser_NullPointerException()throws MoodAnalyzerException  {
 
-        String mood = MoodAnalyzerException.analyseMood();
-        Assert.assertEquals(mood,"");
+
+            String mood = MoodAnalyzerException.analyseMood();
+            Assert.assertEquals(mood,"Happy");
+            System.out.println(mood);
 
     }
 }
