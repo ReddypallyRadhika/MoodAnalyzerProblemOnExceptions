@@ -12,11 +12,19 @@ public class TestMoodAnalyzerException {
     public void testMoodAnalyser_NullPointerException() throws MoodAnalyzerException {
         MoodAnalyzerException moodAnalyzerException = new MoodAnalyzerException();
         try {
-            moodAnalyzerException.analyseMood("sad");
+            moodAnalyzerException.analyseMood("null");
         }catch (MoodAnalyzerException e) {
-            assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_INVALID, e.type);
-//throw new MoodAnalyzerException();
-System.out.println(e.getMessage());
+            assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_INVALID, e.type);System.out.println(e.getMessage());
         }
         }
+    @Test
+    public void testMoodAnalyser_NullPointerException_Null() throws MoodAnalyzerException {
+        MoodAnalyzerException moodAnalyzerException = new MoodAnalyzerException();
+        try {
+            moodAnalyzerException.analyseMood("null");
+        }catch (MoodAnalyzerException e) {
+            assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_NULL, e.type);
+            System.out.println(e.getMessage());
+        }
+    }
     }
