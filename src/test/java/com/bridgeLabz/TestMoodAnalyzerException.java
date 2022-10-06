@@ -27,4 +27,14 @@ public class TestMoodAnalyzerException {
             System.out.println(e.getMessage());
         }
     }
+    @Test
+    public void testMoodAnalyser_NullPointerException_Empty() throws MoodAnalyzerException {
+        MoodAnalyzerException moodAnalyzerException = new MoodAnalyzerException();
+        try {
+            moodAnalyzerException.analyseMood("");
+        }catch (MoodAnalyzerException e) {
+            assertEquals(MoodAnalyzerException.ExceptionType.ENTERED_NULL, e.type);
+            System.out.println(e.getMessage());
+        }
+    }
     }
