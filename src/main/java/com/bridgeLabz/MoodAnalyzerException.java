@@ -1,28 +1,41 @@
 package com.bridgeLabz;
 
-//UC1
+//UC2
 // Refactor the code to take the mood message in Constructor
 public class MoodAnalyzerException extends Exception {
-    private static String message;
-    public MoodAnalyzerException(String message) {
+    private  String message;
+
+    public MoodAnalyzerException() {
+
+    }
+
+    enum ExceptionType{
+        ENTERED_INVALID,ENTERED_NULL,ENTERED_EMPTY
+    }
+    ExceptionType type;
+
+    public MoodAnalyzerException(ExceptionType type,String message) {
        super(message);
-      MoodAnalyzerException.message =message;
+       this.type =type;
+      this.message =message;
 
     }
 
-    public static String analyseMood() throws MoodAnalyzerException {
+
+    public  String analyseMood(String sad) throws MoodAnalyzerException {
 try {
-    if (message.contains("sad")) {
-        return "sad";
-    } else {
-        return "Happy";
-    }
+
+        if (message.contains("sad")) {
+            return "sad";
+        } else {
+            return "Happy";
+        }
+
 }catch(NullPointerException ex){
 
- throw new MoodAnalyzerException("Enter proper message");
+ throw new MoodAnalyzerException(ExceptionType.ENTERED_INVALID,"Enter proper message");
 
 }
-
 
     }
 
